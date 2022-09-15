@@ -1,4 +1,6 @@
 /.vs
+/x64/Debug
+/CSE 302/x64/Debug
 # Prerequisites
 *.d
 
