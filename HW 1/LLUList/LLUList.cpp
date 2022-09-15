@@ -1,6 +1,7 @@
 // Implementation file for AUList
 #include <iostream>
 #include "LLUList.h"
+#include <cmath>
 
 struct LNode {
     int item;
@@ -121,4 +122,32 @@ void LLUList::PrintList() {
   std::cout<<")"<<std::endl;
 }
 
+double LLUList::getMean() {
+  int length = 0;
+  double sum = 0;
+  LNode* nodeIter = ListStart;
+  while (nodeIter != NULL) {
+    sum += nodeIter->item;
+    length++;
+    nodeIter = nodeIter->next;
+  }
+  return sum / length;
+}
 
+double LLUList::getStdev() {
+  double mean = getMean();
+  double squaredSum = 0;
+  int length = 0;
+  LNode* nodeIter = ListStart;
+  while (nodeIter != NULL) {
+    squaredSum += pow(nodeIter->item - mean, 2);
+    length++;
+    nodeIter = nodeIter->next;
+  }
+  return sqrt(squaredSum / length);
+}
+
+double LLUList::DuplicateNV(int N) {
+  LNode* nodeIter = ListStart;
+  LLUList* newList = new LLUList();
+}

@@ -17,6 +17,10 @@ int main(int argc, char** argv) {
 	TestList.PrintList();
 	std::cout<<"Length of List: ";
 	std::cout<<TestList.GetLength()<<std::endl;
+	std::cout<<"mean of List: ";
+	std::cout<<TestList.getMean()<<std::endl;
+	std::cout<<"stdev of List: ";
+	std::cout<<TestList.getStdev()<<std::endl;
 	std::cout<<"IsFull after 'DeleteItem' call? " <<TestList.IsFull() <<std::endl;
 	std::cout<<"Index of value 80: "<<TestList.GetItem(80)<<std::endl;
 	std::cout<<"Index of value 25: "<<TestList.GetItem(25)<<std::endl;
