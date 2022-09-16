@@ -31,7 +31,7 @@ public:
 
   double getStdev(); //Gets the population standard deviation of the list.
 
-  void DuplicateNV(int N); //Duplicates the first N elements into a new LLUList.
+  LLUList DuplicateNV(int N); //Duplicates the first N elements into a new LLUList.
 
 private:
   LNode* ListStart;  

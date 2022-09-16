@@ -12,6 +12,10 @@ int main(int argc, char** argv) {
 	TestList.PrintList();
 	std::cout<<"Length after 'PutItem' calls: " <<TestList.GetLength() <<std::endl;
 	std::cout<<"IsFull after 'PutItem' calls? " <<TestList.IsFull() <<std::endl;
+	std::cout<<"Mean: "<<TestList.getMean()<<std::endl;
+	std::cout<<"Stdev: "<<TestList.getStdev()<<std::endl;
+	std::cout<<"List after 'DuplicateNV' call: ";
+	TestList.DuplicateNV(5).PrintList();
 	TestList.DeleteItem(50);
 	std::cout<<"List after 'DeleteItem' call: ";
 	TestList.PrintList();

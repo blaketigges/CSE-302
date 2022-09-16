@@ -1,7 +1,7 @@
 // Implementation file for AUList
 #include <iostream>
 #include "AUList.h"
-
+#include <cmath>
 
 AUList::AUList() {
   length = 0; //a newly constructed list has 0 elements; we don't care about the contents of the array.
@@ -60,3 +60,27 @@ void AUList::PrintList() { //simple function to print a list's items in stored o
   std::cout<<")"<<std::endl;
 }
 
+double AUList::getMean() {
+  double sum=0;
+  for (int loc=0; loc<length; loc++) {
+  	sum += ListItems[loc];
+  }
+  return sum/length;
+}
+
+double AUList::getStdev() {
+  double squaredSum=0;
+  double mean = getMean();
+  for (int loc=0; loc<length; loc++) {
+  	squaredSum += pow(ListItems[loc]-mean, 2);
+  }
+  return sqrt(squaredSum/length);
+}
+
+AUList AUList::DuplicateNV(int N) {
+  AUList newlist;
+  for (int loc=0; loc<N; loc++) {
+  	newlist.PutItem(ListItems[loc]);
+  }
+  return newlist;
+}

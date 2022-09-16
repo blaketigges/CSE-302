@@ -25,6 +25,11 @@ public:
   
   int GetNextItem(); //Gets the next element in the list.
     
+  double getMean(); //Gets the mean of the list.
+
+  double getStdev(); //Gets the population standard deviation of the list.
+
+  AUList DuplicateNV(int N); //Duplicates the first N elements into a new AUList.
 
 private:
   int length;

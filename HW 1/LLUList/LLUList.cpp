@@ -147,7 +147,21 @@ double LLUList::getStdev() {
   return sqrt(squaredSum / length);
 }
 
-double LLUList::DuplicateNV(int N) {
+LLUList LLUList::DuplicateNV(int N) {
+  if (N > GetLength()) {
+    N = GetLength(); //If N is greater than the length of the list, just duplicate the whole list
+  }
   LNode* nodeIter = ListStart;
   LLUList* newList = new LLUList();
+  while (N > 0) { // go through list and add Nth item to new list N times to copy list and keep the order
+    int i = N-1;
+    nodeIter = ListStart;
+    while (nodeIter != NULL && i > 0) {
+      nodeIter = nodeIter->next; 
+      i--;
+    }
+    newList->PutItem(nodeIter->item);
+    N--;
+  }
+  return *newList;
 }

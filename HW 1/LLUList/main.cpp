@@ -21,6 +21,8 @@ int main(int argc, char** argv) {
 	std::cout<<TestList.getMean()<<std::endl;
 	std::cout<<"stdev of List: ";
 	std::cout<<TestList.getStdev()<<std::endl;
+	std::cout<<"List after 'DuplicateNV' call: ";
+	TestList.DuplicateNV(10).PrintList();
 	std::cout<<"IsFull after 'DeleteItem' call? " <<TestList.IsFull() <<std::endl;
 	std::cout<<"Index of value 80: "<<TestList.GetItem(80)<<std::endl;
 	std::cout<<"Index of value 25: "<<TestList.GetItem(25)<<std::endl;
