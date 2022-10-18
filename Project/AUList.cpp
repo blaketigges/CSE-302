@@ -3,6 +3,7 @@
 #include <stdexcept>
 #include "AUList.h"
 
+
 //Many AUList Operations are unaffected!
 AUList::AUList() {
   length = 0; 
