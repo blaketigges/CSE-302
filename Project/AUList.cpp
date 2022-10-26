@@ -39,7 +39,7 @@ BigMacPriceRecord AUList::GetNextItem() {
 void AUList::PrintList() { //simple function to print a list's items in stored order
   for (int loc=0; loc<length; loc++) {
   	BigMacPriceRecord curitem=ListItems[loc];
-	std::cout<< "Rec " << loc << ": " <<curitem.date << ", " << curitem.curr_code << ", " 
+    std::cout<< "Rec " << loc << ": " <<curitem.date << ", " << curitem.curr_code << ", " 
   << curitem.name << ", " << curitem.local_price << ", " << curitem.dollar_ex << ", " 
   << curitem.dollar_price << std::endl;
   }

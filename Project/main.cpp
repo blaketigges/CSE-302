@@ -12,12 +12,15 @@ AUList csvtoAUList(string csvfile) { //convert a csv file to a list structure
     while (getline(ReadFile,line)) {        
         stringstream ss(line); //turn the line into a string-stream
         int fielditer=0;
-        CCFraudRecord newrec;
+        BigMacPriceRecord newrec;
 		while(getline(ss, curvalue, ',')){ //Separate each variable per sample from the comma separator
             switch (fielditer) { //We need to explicitly convert values to the appropriate type (stoi=integer, stod=double)
-            	case 0: newrec.time=stoi(curvalue); break;
-            	case 1: newrec.amount=stod(curvalue); break;
-            	case 2: newrec.fraudclass=stoi(curvalue); break;
+            	case 0: newrec.date=curvalue; break;
+                case 1: newrec.curr_code=curvalue; break; 
+                case 2: newrec.name=curvalue; break;
+                case 3: newrec.local_price=stod(curvalue); break;
+                case 4: newrec.dollar_ex=stod(curvalue); break;
+                case 5: newrec.dollar_price=stod(curvalue); break;
 			}
             fielditer++;
         }
@@ -27,7 +30,7 @@ AUList csvtoAUList(string csvfile) { //convert a csv file to a list structure
 }
 
 int main(int argc, char** argv) {
-	AUList CCFraudData=csvtoAUList("creditcard_balanced.csv");
-	CCFraudData.PrintList(); //Print the data record-by-record
+	AUList BigMacPriceData=csvtoAUList("BigmacPrice.csv");
+	BigMacPriceData.PrintList(); //Print the data record-by-record
 }
     

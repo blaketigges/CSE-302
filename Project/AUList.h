@@ -1,4 +1,5 @@
-#define MAXSIZE 200
+#define MAXSIZE 1500
+#include <string>
 
 struct BigMacPriceRecord {
 std::string date;
