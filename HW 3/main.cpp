@@ -38,4 +38,6 @@ int main() {
       cout<<", ";
   }
   cout<<endl;
+  cout << "Height of myBST: " << myBST.GetHeight() << endl;
+  cout << "IHRatio of myBST: " << myBST.GetIHRatio() << endl;
 }
