@@ -1,4 +1,6 @@
 #include "BST.h"
+#include <limits.h>
+#include <cmath>
 using namespace std;
 
   
@@ -7,6 +9,32 @@ BST::BST() {
   TravQueue=new CLQueue;
 }
 
+int BST::Height(TNode* curNode) {
+  if (curNode == NULL) {
+    return -1;
+  }
+  else {
+    int leftHeight = Height(curNode->left);
+    int rightHeight = Height(curNode->right);
+    if (leftHeight > rightHeight) {
+      return leftHeight + 1;
+    }
+    else {
+      return rightHeight + 1;
+    }
+  }
+}
+
+int BST::GetHeight() {
+  return Height(root);
+}
+
+double BST::GetIHRatio() {
+  // divides height by ideal height
+  double height = Height(root);
+  double idealHeight = floor(log2(GetLength()));
+  return height/idealHeight;
+}
 
 bool BST::IsFull() { // Returns true if there is no room for another item on the heap; false otherwise.
   TNode* location;
@@ -187,6 +215,14 @@ void BST::InNodes(TNode* curNode) {
   }
 }
 
+void BST::RevInNodes(TNode* curNode) {
+  if (curNode!=NULL) {
+    RevInNodes(curNode->right);
+    TravQueue->Enqueue(curNode->item);
+    RevInNodes(curNode->left);
+  }
+}
+
 void BST::PostNodes(TNode* curNode) {    
   if (curNode!=NULL) {
     PostNodes(curNode->left);    
@@ -212,6 +248,8 @@ void BST::ResetTree(OrderType order) {
     case IN_ORDER  : InNodes(root);
                      break;
     case POST_ORDER: PostNodes(root);
+                     break;
+    case REV_IN_ORDER: RevInNodes(root);
                      break;
   }
   

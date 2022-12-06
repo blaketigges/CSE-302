@@ -7,7 +7,7 @@ struct TNode {
   TNode *right;
 };
 
-enum OrderType {PRE_ORDER, IN_ORDER, POST_ORDER};
+enum OrderType {PRE_ORDER, IN_ORDER, POST_ORDER, REV_IN_ORDER};
 
 
 class BST {
@@ -29,6 +29,8 @@ class BST {
   void ResetTree(OrderType order);
   int GetNextItem();
   bool TravEmpty();
+  int GetHeight();
+  double GetIHRatio();
 
   
   private:
@@ -44,7 +46,8 @@ class BST {
   void PreNodes(TNode* curNode);
   void InNodes(TNode* curNode);
   void PostNodes(TNode* curNode);
-  
+  void RevInNodes(TNode* curNode);
+  int Height(TNode* curNode);
   TNode *root;
   CLQueue *TravQueue;
 };
